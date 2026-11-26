@@ -15,7 +15,7 @@ const wazeLink=p=>'https://www.waze.com/ul?ll='+encodeURIComponent(p.lat+','+p.l
 let travelMap,cluster,markers={},ownPosition;
 function initTravelMap(){
  if(!window.L){document.getElementById('map-status').textContent='No se pudo cargar el mapa. Usa los enlaces de navegación de cada destino.';return}
- const streets=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',{maxZoom:20,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'});
+ const streets=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{maxNativeZoom:16,maxZoom:20,attribution:'Tiles &copy; Esri — Esri, HERE, Garmin, OpenStreetMap contributors'});
  const satellite=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles &copy; Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'});
  document.getElementById('map-loading').remove();
  travelMap=L.map('travel-map',{scrollWheelZoom:false,layers:[streets]});
